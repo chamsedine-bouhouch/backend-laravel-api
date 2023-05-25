@@ -12,11 +12,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+
+        // \App\Models\PreferenceCategory::create([
+        //     'name' => 'sources'
+        // ]);
+        // \App\Models\PreferenceCategory::create([
+        //     'name' => 'categories'
+        // ]);
+        $authors = \App\Models\PreferenceCategory::create([
+            'name' => 'authors'
+        ]);
+
+        \App\Models\Preference::create([
+            'value' => 'Martin L.',
+            'preference_categories_id' => $authors->id,
+            'user_id' => $user->id
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
     }
 }
