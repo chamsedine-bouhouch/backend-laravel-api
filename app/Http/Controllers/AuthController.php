@@ -86,4 +86,18 @@ public function user(Request $request)
 {
     return response()->json($request->user());
 }
+/**
+ * Logout user (Revoke the token)
+*
+* @return [string] message
+*/
+public function logout(Request $request)
+{
+    $request->user()->tokens()->delete();
+
+    return response()->json([
+    'message' => 'Successfully logged out'
+    ]);
+
+}
 }
