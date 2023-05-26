@@ -4,16 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePreferenceCategoryRequest;
 use App\Http\Requests\UpdatePreferenceCategoryRequest;
+use App\Http\Resources\PreferenceCategoryResource;
 use App\Models\PreferenceCategory;
+use Illuminate\Http\JsonResponse;
 
 class PreferenceCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *      path="/api/preference-categories",
+     *      operationId="getPreferenceCategoriesList",
+     *      tags={"preferenceCategories"},
+     *      summary="Display a listing of the resource",
+     *      description="Returns list of preferenceCategories",
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/PreferenceCategoryResource")
+     *       ),
+     *       @OA\Response(response=400, description="Bad request"),
+     *       security={
+     *           {"api_key_security_example": {}}
+     *       }
+     *     )
+     *
+     * Returns list of projects
      */
     public function index()
     {
-        //
+        return new PreferenceCategoryResource(PreferenceCategory::all());
     }
 
     /**

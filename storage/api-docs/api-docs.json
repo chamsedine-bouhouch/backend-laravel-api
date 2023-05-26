@@ -1,0 +1,102 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "News Agregator API",
+        "description": "API Documentaion",
+        "contact": {
+            "email": "bouhouchchamseddine@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0",
+        "x-logo": {
+            "url": "https://via.placeholder.com/190x90.png?text=L5-Swagger"
+        }
+    },
+    "paths": {
+        "/api/preference-categories": {
+            "get": {
+                "tags": [
+                    "preferenceCategories"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "Returns list of preferenceCategories",
+                "operationId": "getPreferenceCategoriesList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PreferenceCategoryResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PreferenceCategory": {
+                "title": "PreferenceCategory",
+                "description": "Preference Category model",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the new Preference Category",
+                        "type": "string",
+                        "example": "sources"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PreferenceCategory"
+                }
+            },
+            "PreferenceCategoryResource": {
+                "title": "PreferenceCategoryResource",
+                "description": "Preference Category resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PreferenceCategory"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PreferenceCategoryResource"
+                }
+            }
+        }
+    }
+}
