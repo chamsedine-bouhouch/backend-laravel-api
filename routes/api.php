@@ -27,6 +27,8 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::apiResource('preference-categories', PreferenceCategoryController::class);
+    Route::apiResource('preferences', PreferenceController::class);
+});
 
-Route::apiResource('preference-categories', PreferenceCategoryController::class);
-Route::apiResource('preferences', PreferenceController::class);

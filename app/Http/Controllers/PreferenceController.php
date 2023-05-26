@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Preference;
+use Illuminate\Http\Request;
+use App\Http\Services\PreferenceService;
+use App\Http\Resources\PreferenceResource;
 use App\Http\Requests\StorePreferenceRequest;
 use App\Http\Requests\UpdatePreferenceRequest;
-use App\Http\Resources\PreferenceResource;
-use App\Models\Preference;
+
 
 class PreferenceController extends Controller
 {
+    public function __construct(private PreferenceService $preferenceService)
+    {
+    }
     /**
      * @OA\Get(
      *      path="/api/preferences",
@@ -39,7 +45,11 @@ class PreferenceController extends Controller
      */
     public function store(StorePreferenceRequest $request)
     {
-        //
+        $this->preferenceService->addPreference($request);
+
+        return  response()->json([
+            'message' => 'Preference added successfully'
+        ]);
     }
 
     /**

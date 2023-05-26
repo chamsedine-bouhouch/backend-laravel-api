@@ -11,7 +11,7 @@ class StorePreferenceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StorePreferenceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'value' => ['required', 'string', 'max:255'],
+            "user_id" => ['required', 'exists:users,id'],
+            "preference_categories_id" => ['required', 'exists:preference_categories,id']
         ];
     }
 }
