@@ -33,6 +33,12 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
+        \App\Models\Preference::create([
+            'value' => 'Johnny Deep',
+            'preference_categories_id' => $authors->id,
+            'user_id' => $user->id
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
 

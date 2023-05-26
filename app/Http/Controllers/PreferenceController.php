@@ -31,7 +31,7 @@ class PreferenceController extends Controller
      */
     public function index()
     {
-        return new PreferenceResource(Preference::all());
+        return PreferenceResource::collection(Preference::all());
     }
 
     /**

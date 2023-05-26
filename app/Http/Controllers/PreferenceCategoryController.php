@@ -32,7 +32,7 @@ class PreferenceCategoryController extends Controller
      */
     public function index()
     {
-        return new PreferenceCategoryResource(PreferenceCategory::all());
+        return PreferenceCategoryResource::collection(PreferenceCategory::all());
     }
 
     /**

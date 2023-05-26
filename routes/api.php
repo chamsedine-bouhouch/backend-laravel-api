@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PreferenceCategoryController;
 use App\Http\Controllers\PreferenceController;
 
 /*
@@ -27,5 +28,5 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 
-Route::apiResource('preference-categories', PreferenceController::class);
+Route::apiResource('preference-categories', PreferenceCategoryController::class);
 Route::apiResource('preferences', PreferenceController::class);
