@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PreferenceCategoryController;
 use App\Http\Controllers\PreferenceController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,6 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('preference-categories', PreferenceCategoryController::class);
     Route::apiResource('preferences', PreferenceController::class);
+    Route::get('user/preferences', [UserController::class, 'getPreferences'])->name('user.preferences');
+    Route::get('user/preferences/{preferenceCategory}', [UserController::class, 'getPreferencesCategory'])->name('user.getPreferencesCategory');
 });
-
