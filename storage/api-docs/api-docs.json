@@ -71,7 +71,51 @@
                 },
                 "security": [
                     {
-                        "api_key_security_example": []
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "storePreference"
+                ],
+                "summary": "Store new Preference",
+                "description": "Returns Preference data",
+                "operationId": "storePreference",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePreferenceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Preference"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
                     }
                 ]
             }
@@ -188,6 +232,44 @@
                 "xml": {
                     "name": "PreferenceResource"
                 }
+            },
+            "StorePreferenceRequest": {
+                "title": "Store Preference request",
+                "description": "Store Preference request body data",
+                "required": [
+                    "value"
+                ],
+                "properties": {
+                    "value": {
+                        "title": "Value",
+                        "description": "Value of the new Preference",
+                        "type": "string",
+                        "example": "sources"
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "User's id of the new preference",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "preference_categories_id": {
+                        "title": "preference_categories_id",
+                        "description": "Preference Categorie's id of the new preference",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearer": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }

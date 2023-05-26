@@ -8,7 +8,14 @@ use App\Http\Services\PreferenceService;
 use App\Http\Resources\PreferenceResource;
 use App\Http\Requests\StorePreferenceRequest;
 use App\Http\Requests\UpdatePreferenceRequest;
-
+/**
+ * @OA\SecurityScheme(
+ *     securityScheme="bearer",
+ *     type="http",
+ *     scheme="bearer",
+ *     bearerFormat="JWT",
+ * )
+ */
 
 class PreferenceController extends Controller
 {
@@ -22,15 +29,14 @@ class PreferenceController extends Controller
      *      tags={"preferences"},
      *      summary="Display a listing of the resource",
      *      description="Returns list of preferences",
+     *      security={ {"bearer": {} }},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/PreferenceResource")
      *       ),
      *       @OA\Response(response=400, description="Bad request"),
-     *       security={
-     *           {"api_key_security_example": {}}
-     *       }
+     *    
      *     )
      *
      * Returns list of preferences
@@ -41,7 +47,35 @@ class PreferenceController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *      path="/api/preferences",
+     *      operationId="storePreference",
+     *      tags={"storePreference"},
+     *      summary="Store new Preference",
+     *      description="Returns Preference data",
+     *       security={ {"bearer": {} }},
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/StorePreferenceRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Preference")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
      */
     public function store(StorePreferenceRequest $request)
     {
