@@ -4,16 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePreferenceRequest;
 use App\Http\Requests\UpdatePreferenceRequest;
+use App\Http\Resources\PreferenceResource;
 use App\Models\Preference;
 
 class PreferenceController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *      path="/api/preferences",
+     *      operationId="getPreferencesList",
+     *      tags={"preferences"},
+     *      summary="Display a listing of the resource",
+     *      description="Returns list of preferences",
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/PreferenceResource")
+     *       ),
+     *       @OA\Response(response=400, description="Bad request"),
+     *       security={
+     *           {"api_key_security_example": {}}
+     *       }
+     *     )
+     *
+     * Returns list of preferences
      */
     public function index()
     {
-        //
+        return new PreferenceResource(Preference::all());
     }
 
     /**

@@ -28,3 +28,4 @@ Route::group(['prefix' => 'auth'], function () {
 
 
 Route::apiResource('preference-categories', PreferenceController::class);
+Route::apiResource('preferences', PreferenceController::class);

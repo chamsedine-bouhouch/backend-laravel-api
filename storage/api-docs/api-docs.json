@@ -45,10 +45,84 @@
                     }
                 ]
             }
+        },
+        "/api/preferences": {
+            "get": {
+                "tags": [
+                    "preferences"
+                ],
+                "summary": "Display a listing of the resource",
+                "description": "Returns list of preferences",
+                "operationId": "getPreferencesList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PreferenceResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
         }
     },
     "components": {
         "schemas": {
+            "Preference": {
+                "title": "Preference",
+                "description": "Preference model",
+                "properties": {
+                    "value": {
+                        "title": "Value",
+                        "description": "Value of the new Preference",
+                        "type": "string",
+                        "example": "sources"
+                    },
+                    "user_id": {
+                        "title": "user_id",
+                        "description": "User's id of the new preference",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "preference_categories_id": {
+                        "title": "preference_categories_id",
+                        "description": "Preference Categorie's id of the new preference",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Preference"
+                }
+            },
             "PreferenceCategory": {
                 "title": "PreferenceCategory",
                 "description": "Preference Category model",
@@ -95,6 +169,24 @@
                 "type": "object",
                 "xml": {
                     "name": "PreferenceCategoryResource"
+                }
+            },
+            "PreferenceResource": {
+                "title": "PreferenceResource",
+                "description": "Preference resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Preference"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PreferenceResource"
                 }
             }
         }

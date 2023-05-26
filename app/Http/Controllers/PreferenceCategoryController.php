@@ -28,7 +28,7 @@ class PreferenceCategoryController extends Controller
      *       }
      *     )
      *
-     * Returns list of projects
+     * Returns list of Preference Categories
      */
     public function index()
     {
