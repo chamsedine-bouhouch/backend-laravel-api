@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\NewsApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -34,3 +35,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('user/preferences', [UserController::class, 'getPreferences'])->name('user.preferences');
     Route::get('user/preferences/{preferenceCategory}', [UserController::class, 'getPreferencesCategory'])->name('user.getPreferencesCategory');
 });
+Route::get('news', [NewsApiController::class, 'load_user_feed']);
+/**
+ * News API Routes
+ */
+// Route::controller(NewsApiController::class)->group(function () {
+//     Route::get('/news', 'index');
+//  })->middleware('auth:sanctum');
+
