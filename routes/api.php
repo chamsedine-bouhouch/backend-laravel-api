@@ -34,8 +34,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('preferences', PreferenceController::class);
     Route::get('user/preferences', [UserController::class, 'getPreferences'])->name('user.preferences');
     Route::get('user/preferences/{preferenceCategory}', [UserController::class, 'getPreferencesCategory'])->name('user.getPreferencesCategory');
+    Route::post('news', [NewsApiController::class, 'load_user_feed']);
+    Route::get('news/categories', [NewsApiController::class, 'getCategories']);
+    Route::get('news/sources', [NewsApiController::class, 'getSources']);
 });
-Route::get('news', [NewsApiController::class, 'load_user_feed']);
 /**
  * News API Routes
  */
