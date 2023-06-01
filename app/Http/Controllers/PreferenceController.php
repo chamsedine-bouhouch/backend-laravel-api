@@ -41,9 +41,9 @@ class PreferenceController extends Controller
      *
      * Returns list of preferences
      */
-    public function index()
+    public function index(Request $request)
     {
-        return PreferenceResource::collection(Preference::all());
+        return PreferenceResource::collection(Preference::where('user_id',$request->user()->id)->get());
     }
 
     /**

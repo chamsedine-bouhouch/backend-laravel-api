@@ -23,7 +23,7 @@ class StorePreferenceRequest extends FormRequest
     {
         return [
             'value' => ['required', 'string', 'max:255'],
-            "user_id" => ['required', 'exists:users,id'],
+            // "user_id" => ['required', 'exists:users,id'],
             "preference_categories_id" => ['required', 'exists:preference_categories,id']
         ];
     }

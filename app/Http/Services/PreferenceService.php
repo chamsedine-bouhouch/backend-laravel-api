@@ -15,7 +15,7 @@ class PreferenceService
     {
         $preference = Preference::create([
             'value' => $request->get('value'),
-            'user_id' => $request->get('user_id'),
+            'user_id' => $request->user()->id,
             'preference_categories_id' => $request->get('preference_categories_id'),
         ]);
         return $preference;
