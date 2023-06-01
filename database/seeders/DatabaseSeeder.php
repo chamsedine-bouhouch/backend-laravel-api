@@ -27,17 +27,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'authors'
         ]);
 
-        \App\Models\Preference::create([
-            'value' => 'Engadget',
-            'preference_categories_id' => $sources->id,
-            'user_id' => $user->id
-        ]);
+        // \App\Models\Preference::create([
+        //     'value' => 'Engadget',
+        //     'preference_categories_id' => $sources->id,
+        //     'user_id' => $user->id
+        // ]);
 
-        \App\Models\Preference::create([
-            'value' => 'The-Verge',
-            'preference_categories_id' => $sources->id,
-            'user_id' => $user->id
-        ]);
+        // \App\Models\Preference::create([
+        //     'value' => 'The-Verge',
+        //     'preference_categories_id' => $sources->id,
+        //     'user_id' => $user->id
+        // ]);
 
         // \App\Models\User::factory(10)->create();
 
