@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c0545ea22c29870c1390bae33c6315d",
+    "content-hash": "4edb186c9c01d497e5ce6f9b9536d82c",
     "packages": [
         {
             "name": "brick/math",
@@ -1130,6 +1130,53 @@
             "time": "2021-10-07T12:57:01+00:00"
         },
         {
+            "name": "jcobhams/newsapi",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jcobhams/newsapi-php.git",
+                "reference": "5961d7e1b1493fe7493d278bada2dba1f5481471"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jcobhams/newsapi-php/zipball/5961d7e1b1493fe7493d278bada2dba1f5481471",
+                "reference": "5961d7e1b1493fe7493d278bada2dba1f5481471",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6 - 7",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6 - 9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "jcobhams\\NewsApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Cobhams",
+                    "email": "jcobhams@gmail.com"
+                }
+            ],
+            "description": "A PHP client for NewsApi",
+            "keywords": [
+                "newsapi"
+            ],
+            "support": {
+                "issues": "https://github.com/jcobhams/newsapi-php/issues",
+                "source": "https://github.com/jcobhams/newsapi-php/tree/v1.0.1"
+            },
+            "time": "2023-02-19T16:24:49+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v10.12.0",
             "source": {
@@ -1454,6 +1501,77 @@
                 "source": "https://github.com/laravel/serializable-closure"
             },
             "time": "2023-01-30T18:31:20+00:00"
+        },
+        {
+            "name": "laravel/telescope",
+            "version": "v4.14.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "d3de7650d846badfa067e2bc777392228a97df16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/d3de7650d846badfa067e2bc777392228a97df16",
+                "reference": "d3de7650d846badfa067e2bc777392228a97df16",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.37|^9.0|^10.0",
+                "php": "^8.0",
+                "symfony/var-dumper": "^5.0|^6.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "laravel/octane": "^1.4",
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/",
+                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/telescope/issues",
+                "source": "https://github.com/laravel/telescope/tree/v4.14.3"
+            },
+            "time": "2023-05-19T18:34:30+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -6066,6 +6184,68 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel/breeze",
+            "version": "v1.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "a7e7e2acfb2fd332183aae41c445be7a2329e93e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/a7e7e2acfb2fd332183aae41c445be7a2329e93e",
+                "reference": "a7e7e2acfb2fd332183aae41c445be7a2329e93e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^10.0",
+                "illuminate/filesystem": "^10.0",
+                "illuminate/support": "^10.0",
+                "illuminate/validation": "^10.0",
+                "php": "^8.1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.0",
+                "phpstan/phpstan": "^1.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Breeze\\BreezeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Breeze\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/breeze/issues",
+                "source": "https://github.com/laravel/breeze"
+            },
+            "time": "2023-05-04T15:02:53+00:00"
         },
         {
             "name": "laravel/pint",

@@ -17,25 +17,25 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        // \App\Models\PreferenceCategory::create([
-        //     'name' => 'sources'
-        // ]);
-        // \App\Models\PreferenceCategory::create([
-        //     'name' => 'categories'
-        // ]);
+        $sources = \App\Models\PreferenceCategory::create([
+            'name' => 'sources'
+        ]);
+        \App\Models\PreferenceCategory::create([
+            'name' => 'categories'
+        ]);
         $authors = \App\Models\PreferenceCategory::create([
             'name' => 'authors'
         ]);
 
         \App\Models\Preference::create([
-            'value' => 'Martin L.',
-            'preference_categories_id' => $authors->id,
+            'value' => 'Engadget',
+            'preference_categories_id' => $sources->id,
             'user_id' => $user->id
         ]);
 
         \App\Models\Preference::create([
-            'value' => 'Johnny Deep',
-            'preference_categories_id' => $authors->id,
+            'value' => 'The-Verge',
+            'preference_categories_id' => $sources->id,
             'user_id' => $user->id
         ]);
 
